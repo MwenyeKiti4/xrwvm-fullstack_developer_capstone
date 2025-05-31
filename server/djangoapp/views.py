@@ -1,15 +1,15 @@
-import os
+# import os
 import json
 import logging
-from datetime import datetime
+# from datetime import datetime
 
-import requests
-from django.shortcuts import render, redirect, get_object_or_404
+# import requests
+# from django.shortcuts import render, redirect, get_object_or_404
 from django.http import JsonResponse
 from django.contrib.auth.models import User
 from django.contrib.auth import login, authenticate, logout
 from django.views.decorators.csrf import csrf_exempt
-from django.contrib import messages
+# from django.contrib import messages
 
 from .populate import initiate
 from .models import CarMake, CarModel
