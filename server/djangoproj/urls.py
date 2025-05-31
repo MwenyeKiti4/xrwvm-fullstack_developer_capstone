@@ -18,8 +18,8 @@ from django.urls import path, include
 from django.views.generic import TemplateView
 from django.conf.urls.static import static
 from django.conf import settings
-from django.conf.urls.static import static
-#import os  # Import os for path operations
+# from django.conf.urls.static import static
+# import os  # Import os for path operations
 
 
 urlpatterns = [
@@ -31,7 +31,8 @@ urlpatterns = [
     path('login/', TemplateView.as_view(template_name="index.html")),
     path('register/', TemplateView.as_view(template_name="index.html")),
     path('dealers/', TemplateView.as_view(template_name="index.html")),
-    path('postreview/<int:dealer_id>',TemplateView.as_view(template_name="index.html")),
+    path('postreview/<int:dealer_id>', 
+         TemplateView.as_view(template_name="index.html")),
     path(
         'dealer/<int:dealer_id>/',
         TemplateView.as_view(template_name="index.html")
@@ -41,5 +42,5 @@ urlpatterns = [
         TemplateView.as_view(template_name="index.html")
         ),
     # Serve the manifest.json file
-    
+
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
