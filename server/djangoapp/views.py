@@ -50,7 +50,8 @@ def logout_request(request):
     """Handle logout via POST."""
     if request.method == "POST":
         logout(request)
-        return JsonResponse({"success": True, "message": "Logged out successfully"})
+        return JsonResponse({"success": True,
+                             "message": "Logged out successfully"})
     return JsonResponse(
         {"success": False, "error": "Invalid request method"}, status=400
     )
@@ -68,7 +69,8 @@ def registration(request):
 
     try:
         User.objects.get(username=username)
-        return JsonResponse({"userName": username, "error": "Already Registered"})
+        return JsonResponse({"userName": username,
+                             "error": "Already Registered"})
     except User.DoesNotExist:
         logger.debug("%s is a new user", username)
         user = User.objects.create_user(
@@ -119,5 +121,6 @@ def add_review(request):
             post_review(data)
             return JsonResponse({"status": 200})
         except Exception:
-            return JsonResponse({"status": 401, "message": "Error in posting review"})
+            return JsonResponse({"status": 401,
+                                 "message": "Error in posting review"})
     return JsonResponse({"status": 403, "message": "Unauthorized"})
